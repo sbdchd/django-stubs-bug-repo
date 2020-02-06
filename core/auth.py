@@ -8,7 +8,7 @@ from django.core.exceptions import PermissionDenied
 def login_required(view_func: Callable) -> Callable:
     @wraps(view_func)
     def wrapped_view(
-        request, *args, **kwargs
+            request: Any, *args: Any, **kwargs: Any
     ) -> Any:
         if request.user.is_authenticated:
             return view_func(request, *args, **kwargs)
